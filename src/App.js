@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { Home, LoginPage } from './scenes';
+import { Box } from '@mui/material';
+import { SearchProduct } from './scenes';
 
-function App() {
+
+// #87CEEB#1976d2 2196f3
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Box
+    backgroundColor='#ffff99'
+    >
+
+    <BrowserRouter>
+    <Routes>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/' element={<LoginPage/>}/>
+      <Route path='/search/:searchTerm' element={<SearchProduct/>}/>
+    </Routes>
+    
+    </BrowserRouter>
+    </Box>
+
+  )
 }
 
-export default App;
+export default App
